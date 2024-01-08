@@ -21,8 +21,8 @@ pipeline {
                 //sh 'terraform apply -auto-approve'
                 bat '''dir
                 C:/Software/Terraform/terraform.exe init
-                C:/Software/Terraform/terraform.exe destroy -auto-approve
-                //C:/Software/Terraform/terraform.exe apply -auto-approve
+                //C:/Software/Terraform/terraform.exe destroy -auto-approve
+                C:/Software/Terraform/terraform.exe apply -auto-approve
                 C:/Software/Terraform/terraform.exe output aws_instance_id > instance_details.txt
                 '''
                 // inject terraform out to a groovy variable 
