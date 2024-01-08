@@ -12,4 +12,4 @@
       lineinfile: dest=/etc/apache2/ports.conf regexp="^Listen 80" line="Listen 8081" state=present
  
     - name: restart apache2
-      ansible.builtin.sysvinit: name=apache2 state=stopped
+      ansible.builtin.sysvinit: name=apache2 state=restarted
