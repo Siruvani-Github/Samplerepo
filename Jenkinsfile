@@ -4,7 +4,7 @@ pipeline {
         stage('clone') {
             steps {
                 sh "rm -rf *"
-                git "https://github.com/Siruvani-Github/Samplerepo.git"
+                git branch: 'main', url: 'https://github.com/Siruvani-Github/Samplerepo.git'
             }
         }
         stage('install') {
