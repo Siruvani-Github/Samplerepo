@@ -9,7 +9,7 @@ pipeline {
         }
         stage('install') {
             steps {
-                sh "ansible-playbook --extra-vars ${params.portnumber} $WORKSPACE/ansible.yaml"
+                sh "ansible-playbook --extra-vars "portnumber= ${params.Portnumber}" $WORKSPACE/ansible.yaml"
             }
         }
     }
