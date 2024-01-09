@@ -4,8 +4,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out your Git repository
-                //git 'https://github.com/Siruvani-Github/Samplerepo.git'//
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Siruvani-Github/Samplerepo.git'
             }
         }
@@ -13,20 +11,14 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 withAWS(credentials: 'AWS-Pipeline', region: 'ap-south-1') {
-                
-                // Run Terraform commands
-                //sh 'cd Samplerepo'//
-                //sh 'ls -lart'
-                //sh 'terraform init'
-                //sh 'terraform apply -auto-approve'
+                              
                 bat '''dir
                 C:/Software/Terraform/terraform.exe init
                 C:/Software/Terraform/terraform.exe destroy -auto-approve
                 C:/Software/Terraform/terraform.exe apply -auto-approve
                 C:/Software/Terraform/terraform.exe output aws_instance_id > instance_details.txt
                 '''
-                // inject terraform out to a groovy variable 
-                // instance_ip = sh(returnStdout: true, script: "terraform output aws_instance_id").trim()
+               
                                 }
             }
         }
