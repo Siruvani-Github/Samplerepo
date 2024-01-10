@@ -16,7 +16,10 @@ pipeline {
                 C:/Software/Terraform/terraform.exe init
                 C:/Software/Terraform/terraform.exe destroy -auto-approve
                 C:/Software/Terraform/terraform.exe apply -auto-approve
-                C:/Software/Terraform/terraform.exe output aws_instance_id > instance_details.txt
+                C:/Software/Terraform/terraform.exe output > instance_details.txt
+
+               // C:/Software/Terraform/terraform.exe output aws_instance_id > instance_details.txt
+               // C:/Software/Terraform/terraform.exe output instance_public_ip >> instance_details.txt
                 '''
                
                                 }
