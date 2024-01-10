@@ -4,5 +4,5 @@ value = aws_instance.awsserverinstance.id
 }
 output "instance_public_ip" {
   description = "Public IP address of the EC2 instance"
-  value       = aws_instance.app_server.public_ip
+  value       = aws_instance.awsserverinstance.public_ip
 }
