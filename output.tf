@@ -6,3 +6,7 @@ output "instance_public_ip" {
   description = "Public IP address of the EC2 instance"
   value       = aws_instance.awsserverinstance.public_ip
 }
+output "instance_type" {
+  description = " Instance Type of the EC2 instance"
+  value       = aws_instance.awsserverinstance.instance_type
+}
