@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
             }
-        }
+        
     post {
          always {
              echo 'This will always run'
@@ -35,3 +35,4 @@ pipeline {
      }
     }
 }
+}  
