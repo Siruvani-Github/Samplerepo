@@ -6,7 +6,7 @@
       # "aws_instance_id" => instance.id
       # "instance_public_ip" => instance.public_ip
       # "instance_type" => instance.instance_type
-      instance.id => [instance_public_ip,instance.instance_type]
+      instance.id => [instance.public_ip,instance.instance_type]
   }
  }
 
