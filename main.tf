@@ -3,7 +3,7 @@ provider "aws" {
   region = "ap-south-1"
   }
 
-resource "aws_instance" "server" {
+resource "aws_instance" "awsserverinstance" {
   count = var.instances
 
   ami           = "ami-0912f71e06545ad88"  
