@@ -1,12 +1,7 @@
-output aws_instance_id {
-description = "AWS EC2 instance id"
-value = aws_instance.awsserverinstance.id
-}
-output "instance_public_ip" {
-  description = "Public IP address of the EC2 instance"
-  value       = aws_instance.awsserverinstance.public_ip
-}
-output "instance_type" {
-  description = " Instance Type of the EC2 instance"
-  value       = aws_instance.awsserverinstance.instance_type
+output "instance_ip_addresses" {
+  # Result is a map from instance id to private and public IP addresses, such as:  #  {"i-1234" = ["192.168.1.2","54.234.188.251,] "i-5678" = ["192.168.1.5","3.90.189.190",] }
+  value = {
+    for instance in aws_instance.awsserverinstance:
+      instance.id => instance.private_ip
+  }
 }
