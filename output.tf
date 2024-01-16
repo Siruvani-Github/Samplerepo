@@ -3,9 +3,10 @@
    value = {
     for instance in aws_instance.awsserverinstance:
       # instance.id => instance.private_ip
-      "aws_instance_id" => instance.id
-      "instance_public_ip" => instance.public_ip
-      "instance_type" => instance.instance_type
+      # "aws_instance_id" => instance.id
+      # "instance_public_ip" => instance.public_ip
+      # "instance_type" => instance.instance_type
+      instance.id => [instance_public_ip,instance.instance_type]
   }
  }
 
