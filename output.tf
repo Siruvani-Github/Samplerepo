@@ -6,6 +6,7 @@
  # }
 # }
 
-output "instance_ip_address_method_2" {  type        = string
+output "instance_ip_address_method_2" {
+  type        = string
   value       = element([for v in values(aws_instance.awsserverinstance) : v.public_ip], 0)
 }
