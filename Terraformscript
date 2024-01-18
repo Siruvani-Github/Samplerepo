@@ -14,8 +14,8 @@ pipeline {
                               
                 bat '''dir
                 C:/Software/Terraform/terraform.exe init
-                C:/Software/Terraform/terraform.exe destroy -auto-approve
-              //  C:/Software/Terraform/terraform.exe apply -var instance_type=%instancetype% -auto-approve 
+               // C:/Software/Terraform/terraform.exe destroy -auto-approve
+                C:/Software/Terraform/terraform.exe apply -var instance_type=%instancetype% -auto-approve 
                 C:/Software/Terraform/terraform.exe output > instance_details.txt
 
                
