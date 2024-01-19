@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Siruvani-Github/Samplerepo.git'
             }
-        
+            }
 
         stage('Terraform Apply') {
             steps {
