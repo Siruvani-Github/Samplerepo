@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Siruvani-Github/Samplerepo.git'
             }
-        }
+        
 
         stage('Terraform Apply') {
             steps {
@@ -14,7 +14,7 @@ pipeline {
                               
                 bat '''dir
                 C:/Software/Terraform/terraform.exe init
-               / C:/Software/Terraform/terraform.exe destroy -auto-approve
+               // C:/Software/Terraform/terraform.exe destroy -auto-approve
                 C:/Software/Terraform/terraform.exe apply -var instance_type=%instancetype% -auto-approve 
                 C:/Software/Terraform/terraform.exe output > instance_details.txt
 
