@@ -9,8 +9,21 @@ pipeline {
         }
         stage('install') {
             steps {
-                sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
+                    script {
+                   def port = readFile '/etc/apache2/ports.conf'
+                   echo "apache2 port details ${port}"
+                   def lines = "${port}".readLines()
+                   def apache_port = "${lines[4]}".substring(7)
+                   echo "apache_port is ${apache_port}"
+                   if ("${params.Portnumber}" == "${apache_port}")
+                    {
+                    echo "Port Number already assigned"    
+               // sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
                // sh "echo Portnumber is ${params.Portnumber} > Port_details.txt "
+            }
+                else {
+                    sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
+                }   
             }
         
         
