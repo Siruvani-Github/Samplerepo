@@ -5,5 +5,5 @@ variable "instance_type" {
 }
 variable "instances" {
   description = "number of ec2 instances"
-  default = 4
+  default = 2
 }
