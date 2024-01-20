@@ -12,5 +12,7 @@ resource "aws_instance" "awsserverinstance" {
   tags = {
     Name = "Server ${count.index}"
   }
+  lifecycle
+  {    create_before_destroy = true  }
 }
 
