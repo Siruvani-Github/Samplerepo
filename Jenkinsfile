@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
             }
-        }
+        
         
     post {
          always {
@@ -21,7 +21,7 @@ pipeline {
             sh "echo Portnumber is ${params.Portnumber} > Port_details.txt "
              echo ' Ansible Script executed and Apache Installed'
                 mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL} ", charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Apache Build Sucess: Project name -> ${env.JOB_NAME}", to: "ks.sendhil@gmail.com";
-                emailext attachLog: true, attachmentsPattern: 'Port_details.txt',
+               // emailext attachLog: true, attachmentsPattern:'Port_details.txt',
                // body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
               //  to:"ks.sendhil@gmail.com",subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
              
@@ -36,5 +36,6 @@ pipeline {
          }
      }
     }
+}
 }
  
