@@ -11,16 +11,17 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 withAWS(credentials: 'AWS-Pipeline', region: 'ap-south-1') {
-                              
+                           
                 bat '''dir
                 C:/Software/Terraform/terraform.exe init
                // C:/Software/Terraform/terraform.exe destroy -auto-approve
                 C:/Software/Terraform/terraform.exe apply -var instance_type=%instancetype% -auto-approve 
-                C:/Software/Terraform/terraform.exe output > instance_details.txt
-
-               
-                '''
-               
+                if errorlevel 1 (
+                   echo Failure Reason Given is %errorlevel%
+                   exit /b %errorlevel%
+)
+                C:/Software/Terraform/terraform.exe output > instance_details.txt             
+                '''              
                                 }
             }
         }
