@@ -19,7 +19,7 @@ pipeline {
              echo 'This will always run'
          }
          success {
-             "echo Portnumber is ${params.Portnumber} > Port_details.txt "
+            sh "echo Portnumber is ${params.Portnumber} > Port_details.txt "
              echo ' Ansible Script executed and Apache Installed'
                 emailext attachLog: true, attachmentsPattern: 'Port_details.txt',
                 body: "${currentBuild.currentResult}: Job: ${env.JOB_NAME} build: ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
