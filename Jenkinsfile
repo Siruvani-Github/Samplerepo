@@ -10,6 +10,7 @@ pipeline {
         stage('install') {
             steps {
                 sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
+                sh "echo Portnumber is ${params.Portnumber} > Port_details.txt "
             }
         
         
