@@ -1,9 +1,9 @@
 
-provider "aws" {
+  provider "aws" {
   region = "ap-south-1"
   }
 
-resource "aws_instance" "awsserverinstance" {
+  resource "aws_instance" "awsserverinstance" {
   count = var.instances
 
   ami           = "ami-0912f71e06545ad88"  
@@ -12,7 +12,8 @@ resource "aws_instance" "awsserverinstance" {
   tags = {
     Name = "Server ${count.index}"
   }
-  lifecycle
-  {    create_before_destroy = true  }
-}
+  lifecycle  { 
+  create_before_destroy = true 
+  }
+  }
 
