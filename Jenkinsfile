@@ -23,7 +23,8 @@ pipeline {
             }
                 else {
                     sh "ansible-playbook --extra-vars 'portnumber=${params.Portnumber}' $WORKSPACE/ansible.yaml"
-                }   
+                }  
+                    }
             }
         
         
@@ -52,4 +53,4 @@ pipeline {
     }
 }
 }
-} 
+
